@@ -16,6 +16,8 @@
 		3C67B3921FEDF78E00DD6068 /* Brainy_Words_2000.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C67B3901FEDF78E00DD6068 /* Brainy_Words_2000.xcdatamodeld */; };
 		3C67B3941FEDF78E00DD6068 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C67B3931FEDF78E00DD6068 /* Assets.xcassets */; };
 		3C67B3971FEDF78E00DD6068 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C67B3951FEDF78E00DD6068 /* LaunchScreen.storyboard */; };
+		3CDF5C971FEE03EB00D8FAA3 /* SWXMLHash+TypeConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF5C951FEE03EB00D8FAA3 /* SWXMLHash+TypeConversion.swift */; };
+		3CDF5C981FEE03EB00D8FAA3 /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF5C961FEE03EB00D8FAA3 /* SWXMLHash.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		3C67B3931FEDF78E00DD6068 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C67B3961FEDF78E00DD6068 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C67B3981FEDF78E00DD6068 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3CDF5C951FEE03EB00D8FAA3 /* SWXMLHash+TypeConversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SWXMLHash+TypeConversion.swift"; sourceTree = "<group>"; };
+		3CDF5C961FEE03EB00D8FAA3 /* SWXMLHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWXMLHash.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,14 +70,24 @@
 				3C645C2D1FEDFD290076C38D /* layout */,
 				3C67B3891FEDF78E00DD6068 /* AppDelegate.swift */,
 				3C67B38B1FEDF78E00DD6068 /* LogoViewController.swift */,
-				3C67B38D1FEDF78E00DD6068 /* Main.storyboard */,
 				3C645C311FEE02890076C38D /* MainStreetViewController.swift */,
-				3C67B3931FEDF78E00DD6068 /* Assets.xcassets */,
+				3CDF5C991FEE03EF00D8FAA3 /* XMLParser */,
+				3C67B38D1FEDF78E00DD6068 /* Main.storyboard */,
 				3C67B3951FEDF78E00DD6068 /* LaunchScreen.storyboard */,
+				3C67B3931FEDF78E00DD6068 /* Assets.xcassets */,
 				3C67B3981FEDF78E00DD6068 /* Info.plist */,
 				3C67B3901FEDF78E00DD6068 /* Brainy_Words_2000.xcdatamodeld */,
 			);
 			path = "Brainy Words 2000";
+			sourceTree = "<group>";
+		};
+		3CDF5C991FEE03EF00D8FAA3 /* XMLParser */ = {
+			isa = PBXGroup;
+			children = (
+				3CDF5C961FEE03EB00D8FAA3 /* SWXMLHash.swift */,
+				3CDF5C951FEE03EB00D8FAA3 /* SWXMLHash+TypeConversion.swift */,
+			);
+			path = XMLParser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,9 +165,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C645C321FEE02890076C38D /* MainStreetViewController.swift in Sources */,
+				3CDF5C981FEE03EB00D8FAA3 /* SWXMLHash.swift in Sources */,
 				3C67B38C1FEDF78E00DD6068 /* LogoViewController.swift in Sources */,
 				3C67B38A1FEDF78E00DD6068 /* AppDelegate.swift in Sources */,
 				3C67B3921FEDF78E00DD6068 /* Brainy_Words_2000.xcdatamodeld in Sources */,
+				3CDF5C971FEE03EB00D8FAA3 /* SWXMLHash+TypeConversion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

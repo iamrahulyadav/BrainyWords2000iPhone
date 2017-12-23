@@ -34,7 +34,7 @@ class LogoViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        
+        jumpToMainStreetViewController()
     }
     
     func jumpToMainStreetViewController() {
