@@ -9,7 +9,7 @@
 import UIKit
 
 class MainStreetViewController: UIViewController {
-    
+    var buttonDict: [String: UIButton] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +25,8 @@ class MainStreetViewController: UIViewController {
     }
     
     func setupImagesAndButtons() {
-        let scrollView: UIScrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: 500, height: 300))
-        scrollView.contentSize = CGSize(width: 2000, height: 300)
+        let scrollView: UIScrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 300))
+        scrollView.contentSize = CGSize(width: 18000, height: 300)
         let containerView: UIView = UIView()
         scrollView.addSubview(containerView)
         self.view.addSubview(scrollView)
@@ -54,18 +54,50 @@ class MainStreetViewController: UIViewController {
                     containerView.addSubview(imageView)
 
                     containerOffset += calculatedWidth
-//                    for currentButton in currentPictureXML.children {
-//                        if let currentButtonXML = currentButton as? XMLElement {
-//                            let buttonWidth = currentButtonXML.attribute(by: "android:layout_width")?.text
-//                            let buttonHeight = currentButtonXML.attribute(by: "android:layout_height")?.text
-//
-//                            let button = UIButton(type: .roundedRect)
-//                            button.setTitle("Demo Btn", for: .normal)
-//                            button.layer.backgroundColor = UIColor.blue.withAlphaComponent(0.5).cgColor
-//                            button.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-//                            self.view.addSubview(button)
-//                        }
-//                    }
+                    
+                    if (containerOffset == calculatedWidth) { // temporary so we only debug the first picture
+                        for currentButton in currentPictureXML.children {
+                            if let currentButtonXML = currentButton as? XMLElement {
+                                if let widthS = currentButtonXML.attribute(by: "android:layout_width"),
+                                    let heightS = currentButtonXML.attribute(by: "android:layout_height") {
+                                    
+                                    let buttonWidth = widthS.text.dpToCGFloat()
+                                    let buttonHeight = heightS.text.dpToCGFloat()
+                                    
+                                    let marginLeft = currentButtonXML.attribute(by: "android:layout_marginLeft")?.text
+                                    let marginTop = currentButtonXML.attribute(by: "android:layout_marginTop")?.text
+                                    let marginRight = currentButtonXML.attribute(by: "android:layout_marginRight")?.text
+                                    let marginDown = currentButtonXML.attribute(by: "android:layout_marginDown")?.text
+                                    
+                                    var xOffset: CGFloat = 0
+                                    var yOffset: CGFloat = 0
+                                    
+                                    if let leftM = marginLeft {
+                                        xOffset = leftM.dpToCGFloat()
+                                    }
+                                    
+                                    if let rightM = marginRight {
+                                        yOffset = rightM.dpToCGFloat()
+                                    }
+
+                                    
+                                    let buttonDictKey = currentButtonXML.attribute(by: "android:id")?.text ?? "Unknown"
+                                    let button = UIButton(type: .roundedRect)
+                                    button.setTitle(buttonDictKey, for: .normal)
+                                    button.layer.backgroundColor = UIColor.blue.withAlphaComponent(0.5).cgColor
+                                    button.frame = CGRect(x: xOffset, y: yOffset, width: buttonWidth, height: buttonHeight)
+                                    button.accessibilityLabel = currentButtonXML.attribute(by: "android:tag")?.text
+                                    
+                                    buttonDict[buttonDictKey] = button
+                                    
+                                    self.view.addSubview(button)
+                                    
+                                }
+                            }
+
+                    }
+                    
+                    }
 //                    break
                 }
             }
@@ -85,5 +117,9 @@ class MainStreetViewController: UIViewController {
 
 }
 
-//class
-
+extension String {
+    func dpToCGFloat() -> CGFloat {
+        let newStr = self.replacingOccurrences(of: "dp", with: "")
+        return CGFloat((newStr as NSString).floatValue)
+    }
+}
