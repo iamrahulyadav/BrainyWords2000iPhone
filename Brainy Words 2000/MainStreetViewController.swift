@@ -175,6 +175,13 @@ class MainStreetViewController: UIViewController, UIScrollViewDelegate {
         }
     }
 
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (scrollView.contentOffset.x < CGFloat(0)) {
+            scrollView.contentOffset.x = 15137.0
+        } else if (scrollView.contentOffset.x < CGFloat(15137)) {
+            scrollView.contentOffset.x = 0
+        }
+    }
     
     
     
