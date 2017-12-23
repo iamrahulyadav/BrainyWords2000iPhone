@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		3C645C2E1FEDFD290076C38D /* layout in Resources */ = {isa = PBXBuildFile; fileRef = 3C645C2D1FEDFD290076C38D /* layout */; };
 		3C645C301FEDFD3F0076C38D /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 3C645C2F1FEDFD3F0076C38D /* assets */; };
+		3C645C321FEE02890076C38D /* MainStreetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C645C311FEE02890076C38D /* MainStreetViewController.swift */; };
 		3C67B38A1FEDF78E00DD6068 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C67B3891FEDF78E00DD6068 /* AppDelegate.swift */; };
-		3C67B38C1FEDF78E00DD6068 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C67B38B1FEDF78E00DD6068 /* ViewController.swift */; };
+		3C67B38C1FEDF78E00DD6068 /* LogoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C67B38B1FEDF78E00DD6068 /* LogoViewController.swift */; };
 		3C67B38F1FEDF78E00DD6068 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C67B38D1FEDF78E00DD6068 /* Main.storyboard */; };
 		3C67B3921FEDF78E00DD6068 /* Brainy_Words_2000.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C67B3901FEDF78E00DD6068 /* Brainy_Words_2000.xcdatamodeld */; };
 		3C67B3941FEDF78E00DD6068 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C67B3931FEDF78E00DD6068 /* Assets.xcassets */; };
@@ -20,9 +21,10 @@
 /* Begin PBXFileReference section */
 		3C645C2D1FEDFD290076C38D /* layout */ = {isa = PBXFileReference; lastKnownFileType = folder; path = layout; sourceTree = "<group>"; };
 		3C645C2F1FEDFD3F0076C38D /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
+		3C645C311FEE02890076C38D /* MainStreetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStreetViewController.swift; sourceTree = "<group>"; };
 		3C67B3861FEDF78E00DD6068 /* Brainy Words 2000.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Brainy Words 2000.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C67B3891FEDF78E00DD6068 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3C67B38B1FEDF78E00DD6068 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3C67B38B1FEDF78E00DD6068 /* LogoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoViewController.swift; sourceTree = "<group>"; };
 		3C67B38E1FEDF78E00DD6068 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3C67B3911FEDF78E00DD6068 /* Brainy_Words_2000.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Brainy_Words_2000.xcdatamodel; sourceTree = "<group>"; };
 		3C67B3931FEDF78E00DD6068 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,8 +65,9 @@
 				3C645C2F1FEDFD3F0076C38D /* assets */,
 				3C645C2D1FEDFD290076C38D /* layout */,
 				3C67B3891FEDF78E00DD6068 /* AppDelegate.swift */,
-				3C67B38B1FEDF78E00DD6068 /* ViewController.swift */,
+				3C67B38B1FEDF78E00DD6068 /* LogoViewController.swift */,
 				3C67B38D1FEDF78E00DD6068 /* Main.storyboard */,
+				3C645C311FEE02890076C38D /* MainStreetViewController.swift */,
 				3C67B3931FEDF78E00DD6068 /* Assets.xcassets */,
 				3C67B3951FEDF78E00DD6068 /* LaunchScreen.storyboard */,
 				3C67B3981FEDF78E00DD6068 /* Info.plist */,
@@ -147,7 +150,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C67B38C1FEDF78E00DD6068 /* ViewController.swift in Sources */,
+				3C645C321FEE02890076C38D /* MainStreetViewController.swift in Sources */,
+				3C67B38C1FEDF78E00DD6068 /* LogoViewController.swift in Sources */,
 				3C67B38A1FEDF78E00DD6068 /* AppDelegate.swift in Sources */,
 				3C67B3921FEDF78E00DD6068 /* Brainy_Words_2000.xcdatamodeld in Sources */,
 			);
