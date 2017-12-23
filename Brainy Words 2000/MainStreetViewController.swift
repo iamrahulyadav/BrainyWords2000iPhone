@@ -8,10 +8,11 @@
 
 import UIKit
 
-class MainStreetViewController: UIViewController {
+class MainStreetViewController: UIViewController, UIScrollViewDelegate {
     var imageViews: [String: UIImageView] = [:]
     var buttonDict: [String: UIButton] = [:]
-
+    var scrollView: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupImagesAndButtons()
@@ -26,9 +27,16 @@ class MainStreetViewController: UIViewController {
     }
     
     func setupImagesAndButtons() {
-        let scrollView: UIScrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 300))
+        scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 300))
         scrollView.isUserInteractionEnabled = true
-        scrollView.contentSize = CGSize(width: 18000, height: 300)
+        scrollView.delaysContentTouches = false
+        scrollView.isExclusiveTouch = true
+        scrollView.canCancelContentTouches = true
+//        scrollView.da
+//        scrollView.adjustedContentInset = false
+        scrollView.delegate = self
+        
+        scrollView.contentSize = CGSize(width: 15804, height: 300)
         let containerView: UIView = UIView()
         scrollView.addSubview(containerView)
         self.view.addSubview(scrollView)
@@ -104,14 +112,16 @@ class MainStreetViewController: UIViewController {
                                     
                                     let buttonDictKey = currentButtonXML.attribute(by: "android:id")?.text ?? "Unknown"
                                     let button = UIButton(type: .roundedRect)
+                                    button.isEnabled = true
                                     button.setTitle(buttonDictKey, for: .normal)
                                     button.layer.backgroundColor = UIColor.blue.withAlphaComponent(0.5).cgColor
-                                    button.frame = CGRect(x: xOffset, y: yOffset, width: buttonWidth, height: buttonHeight)
+                                    button.frame = CGRect(x: containerOffset + xOffset, y: yOffset, width: buttonWidth, height: buttonHeight)
                                     button.accessibilityLabel = currentButtonXML.attribute(by: "android:tag")?.text
                                     button.addTarget(self, action: #selector(buttonTappedToPlayWordSound(sender:)), for: .touchUpInside)
                                     buttonDict[buttonDictKey] = button
                                     
-                                    imageContainerView.addSubview(button)
+//                                    imageContainerView.addSubview(button)
+                                    scrollView.insertSubview(button, aboveSubview: imageContainerView)
                                     
                                 }
                             }
@@ -128,6 +138,7 @@ class MainStreetViewController: UIViewController {
             print("Failed to parse XML. \(error)")
         }
     
+        print("In the end, the added width in total is \(containerOffset)")
     }
     
 
@@ -141,6 +152,8 @@ class MainStreetViewController: UIViewController {
         print("Tapped button \(sender.accessibilityLabel) to play sound")
 
     }
+    
+    
 
 }
 

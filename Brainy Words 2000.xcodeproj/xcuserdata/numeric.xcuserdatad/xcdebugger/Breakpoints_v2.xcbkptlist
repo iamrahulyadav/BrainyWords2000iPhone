@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Brainy Words 2000/MainStreetViewController.swift"
-            timestampString = "535710144.39109"
+            timestampString = "535710769.209125"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "setupImagesAndButtons()"
             landmarkType = "7">
          </BreakpointContent>
