@@ -152,9 +152,18 @@ class MainStreetViewController: UIViewController, UIScrollViewDelegate {
             path = "assets/xtra/HEADINGS/00\(soundName)"
         }
 
-        guard let mp3Path = Bundle.main.path(forResource: path, ofType: "mp3") else {
-            return
+        var mp3Path = ""
+        if let tempPath = Bundle.main.path(forResource: path, ofType: "mp3") {
+            mp3Path = tempPath
+        } else {
+            path = "assets/xtra/HEADINGS/00\(soundName)"
+            if let tempPathUncategorized = Bundle.main.path(forResource: path, ofType: "mp3") {
+                mp3Path = tempPathUncategorized
+            } else {
+                return
+            }
         }
+
         let mp3FileURL = NSURL(fileURLWithPath: mp3Path)
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: mp3FileURL as URL)
