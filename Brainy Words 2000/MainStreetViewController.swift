@@ -9,6 +9,7 @@
 import UIKit
 
 class MainStreetViewController: UIViewController {
+    var imageViews: [String: UIImageView] = [:]
     var buttonDict: [String: UIButton] = [:]
 
     override func viewDidLoad() {
@@ -26,6 +27,7 @@ class MainStreetViewController: UIViewController {
     
     func setupImagesAndButtons() {
         let scrollView: UIScrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 300))
+        scrollView.isUserInteractionEnabled = true
         scrollView.contentSize = CGSize(width: 18000, height: 300)
         let containerView: UIView = UIView()
         scrollView.addSubview(containerView)
@@ -47,16 +49,27 @@ class MainStreetViewController: UIViewController {
                     var normalizedImageName = imageName?.replacingOccurrences(of: "@", with: "assets/")
                     normalizedImageName = "\(normalizedImageName ?? "assets/drawable/back").png"
                     
-                    let image = UIImage(named: normalizedImageName!)
-                    let calculatedWidth = ((image?.size.height)! / 300) * (image?.size.width)!
+                    let image = UIImage(named: normalizedImageName!)!
+                    let calculatedWidth = (300 * image.size.width) / image.size.height
+                    print("image size is: \(image.size), height: 300, width: \(calculatedWidth)")
+                    
+                    let imageContainerView = UIView()
+                    imageContainerView.frame = CGRect(x: containerOffset, y: 0, width: calculatedWidth, height: 300)
+                    imageContainerView.isUserInteractionEnabled = true
+
                     let imageView = UIImageView(image: image)
-                    imageView.frame = CGRect(x: containerOffset, y: 0, width: calculatedWidth, height: 300)
-                    containerView.addSubview(imageView)
+                    imageView.frame = CGRect(x: 0, y: 0, width: calculatedWidth, height: 300)
+                    imageView.isUserInteractionEnabled = true
+                    imageViews[imageName ?? "Unknown"] = imageView
+//                    imageContainerView.addSubview(imageView)
+                    
+                    containerView.addSubview(imageContainerView)
 
                     containerOffset += calculatedWidth
                     
-                    if (containerOffset == calculatedWidth) { // temporary so we only debug the first picture
+                    if (1 == 1) { // temporary so we only debug the first picture
                         for currentButton in currentPictureXML.children {
+//                            let currentButton = currentPictureXML.children[1]
                             if let currentButtonXML = currentButton as? XMLElement {
                                 if let widthS = currentButtonXML.attribute(by: "android:layout_width"),
                                     let heightS = currentButtonXML.attribute(by: "android:layout_height") {
@@ -76,8 +89,16 @@ class MainStreetViewController: UIViewController {
                                         xOffset = leftM.dpToCGFloat()
                                     }
                                     
+                                    if let topM = marginTop {
+                                        yOffset = topM.dpToCGFloat()
+                                    }
+                                    
                                     if let rightM = marginRight {
-                                        yOffset = rightM.dpToCGFloat()
+                                        xOffset = calculatedWidth - rightM.dpToCGFloat()
+                                    }
+                                    
+                                    if let bottomM = marginDown {
+                                        yOffset = 300 - bottomM.dpToCGFloat()
                                     }
 
                                     
@@ -87,10 +108,10 @@ class MainStreetViewController: UIViewController {
                                     button.layer.backgroundColor = UIColor.blue.withAlphaComponent(0.5).cgColor
                                     button.frame = CGRect(x: xOffset, y: yOffset, width: buttonWidth, height: buttonHeight)
                                     button.accessibilityLabel = currentButtonXML.attribute(by: "android:tag")?.text
-                                    
+                                    button.addTarget(self, action: #selector(buttonTappedToPlayWordSound(sender:)), for: .touchUpInside)
                                     buttonDict[buttonDictKey] = button
                                     
-                                    self.view.addSubview(button)
+                                    imageContainerView.addSubview(button)
                                     
                                 }
                             }
@@ -113,6 +134,12 @@ class MainStreetViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+    }
+    
+    @objc func buttonTappedToPlayWordSound(sender: UIButton) {
+        print("Tapped button \(sender) to play sound")
+        print("Tapped button \(sender.accessibilityLabel) to play sound")
+
     }
 
 }
