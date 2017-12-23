@@ -15,6 +15,7 @@ class MainStreetViewController: UIViewController, UIScrollViewDelegate {
     var buttonDict: [String: UIButton] = [:]
     var scrollView: UIScrollView!
     var audioPlayer: AVAudioPlayer?
+    var containerOffset: CGFloat = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,6 @@ class MainStreetViewController: UIViewController, UIScrollViewDelegate {
         let containerView: UIView = UIView()
         scrollView.addSubview(containerView)
         self.view.addSubview(scrollView)
-        var containerOffset: CGFloat = 0
         //        scrollView.addSubview(<#T##view: UIView##UIView#>)
         
         guard let path = Bundle.main.path(forResource: "layout/activity_main", ofType: "xml") else {
@@ -176,9 +176,11 @@ class MainStreetViewController: UIViewController, UIScrollViewDelegate {
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        var threshold = self.view.frame.size.width
+        
         if (scrollView.contentOffset.x < CGFloat(0)) {
-            scrollView.contentOffset.x = 15137.0
-        } else if (scrollView.contentOffset.x > CGFloat(15137)) {
+            scrollView.contentOffset.x = containerOffset - threshold
+        } else if (scrollView.contentOffset.x > CGFloat(threshold - threshold)) {
             scrollView.contentOffset.x = 0
         }
     }
