@@ -36,15 +36,14 @@ class MainStreetViewController: UIViewController, UIScrollViewDelegate {
         scrollView.delaysContentTouches = false
         scrollView.isExclusiveTouch = true
         scrollView.canCancelContentTouches = true
-        //        scrollView.da
-        //        scrollView.adjustedContentInset = false
+        // scrollView.adjustedContentInset = false
         scrollView.delegate = self
         
         scrollView.contentSize = CGSize(width: 15804, height: 300)
         let containerView: UIView = UIView()
         scrollView.addSubview(containerView)
         self.view.addSubview(scrollView)
-        //        scrollView.addSubview(<#T##view: UIView##UIView#>)
+        // scrollView.addSubview(<#T##view: UIView##UIView#>)
         
         guard let path = Bundle.main.path(forResource: "layout/activity_main", ofType: "xml") else {
             return
@@ -184,8 +183,6 @@ class MainStreetViewController: UIViewController, UIScrollViewDelegate {
             scrollView.contentOffset.x = 0
         }
     }
-    
-    
     
 }
 

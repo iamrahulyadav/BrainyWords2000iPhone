@@ -57,16 +57,16 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brainy Words 2000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8R-XW-aWR">
-                                <rect key="frame" x="438.5" y="744" width="236.5" height="35"/>
-                                <fontDescription key="fontDescription" name="ComicSansMS-Bold" family="Comic Sans MS" pointSize="25"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="447.5" y="776.5" width="217.5" height="32.5"/>
+                                <fontDescription key="fontDescription" name="ComicSansMS-Bold" family="Comic Sans MS" pointSize="23"/>
+                                <color key="textColor" red="0.48234337570000002" green="0.48603379730000001" blue="0.49467426539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="M8R-XW-aWR" firstAttribute="centerX" secondItem="TqD-xT-Nuv" secondAttribute="centerX" id="UHW-jc-uwf"/>
-                            <constraint firstItem="Ni4-CA-Oav" firstAttribute="bottom" secondItem="M8R-XW-aWR" secondAttribute="bottom" constant="55" id="UjQ-yy-wbY"/>
+                            <constraint firstItem="Ni4-CA-Oav" firstAttribute="bottom" secondItem="M8R-XW-aWR" secondAttribute="bottom" constant="25" id="UjQ-yy-wbY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ni4-CA-Oav"/>
                     </view>
