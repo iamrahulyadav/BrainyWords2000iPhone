@@ -16,6 +16,8 @@
 		3C67B3921FEDF78E00DD6068 /* Brainy_Words_2000.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C67B3901FEDF78E00DD6068 /* Brainy_Words_2000.xcdatamodeld */; };
 		3C67B3941FEDF78E00DD6068 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C67B3931FEDF78E00DD6068 /* Assets.xcassets */; };
 		3C67B3971FEDF78E00DD6068 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C67B3951FEDF78E00DD6068 /* LaunchScreen.storyboard */; };
+		3CC2963A1FEE58CE009D52DA /* InteriorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC296391FEE58CD009D52DA /* InteriorViewController.swift */; };
+		3CC2963C1FEE58D8009D52DA /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC2963B1FEE58D8009D52DA /* QuizViewController.swift */; };
 		3CDF5C971FEE03EB00D8FAA3 /* SWXMLHash+TypeConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF5C951FEE03EB00D8FAA3 /* SWXMLHash+TypeConversion.swift */; };
 		3CDF5C981FEE03EB00D8FAA3 /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF5C961FEE03EB00D8FAA3 /* SWXMLHash.swift */; };
 		3CE7E4C91FEE5492002B6957 /* ComicSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3CE7E4C81FEE5492002B6957 /* ComicSans.ttf */; };
@@ -33,6 +35,8 @@
 		3C67B3931FEDF78E00DD6068 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C67B3961FEDF78E00DD6068 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C67B3981FEDF78E00DD6068 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3CC296391FEE58CD009D52DA /* InteriorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteriorViewController.swift; sourceTree = "<group>"; };
+		3CC2963B1FEE58D8009D52DA /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		3CDF5C951FEE03EB00D8FAA3 /* SWXMLHash+TypeConversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SWXMLHash+TypeConversion.swift"; sourceTree = "<group>"; };
 		3CDF5C961FEE03EB00D8FAA3 /* SWXMLHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWXMLHash.swift; sourceTree = "<group>"; };
 		3CE7E4C81FEE5492002B6957 /* ComicSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ComicSans.ttf; path = assets/Fonts/ComicSans.ttf; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 				3C67B3891FEDF78E00DD6068 /* AppDelegate.swift */,
 				3C67B38B1FEDF78E00DD6068 /* LogoViewController.swift */,
 				3C645C311FEE02890076C38D /* MainStreetViewController.swift */,
+				3CC296391FEE58CD009D52DA /* InteriorViewController.swift */,
+				3CC2963B1FEE58D8009D52DA /* QuizViewController.swift */,
 				3CDF5C991FEE03EF00D8FAA3 /* XMLParser */,
 				3C67B38D1FEDF78E00DD6068 /* Main.storyboard */,
 				3C67B3951FEDF78E00DD6068 /* LaunchScreen.storyboard */,
@@ -171,9 +177,11 @@
 				3C645C321FEE02890076C38D /* MainStreetViewController.swift in Sources */,
 				3CDF5C981FEE03EB00D8FAA3 /* SWXMLHash.swift in Sources */,
 				3C67B38C1FEDF78E00DD6068 /* LogoViewController.swift in Sources */,
+				3CC2963C1FEE58D8009D52DA /* QuizViewController.swift in Sources */,
 				3C67B38A1FEDF78E00DD6068 /* AppDelegate.swift in Sources */,
 				3C67B3921FEDF78E00DD6068 /* Brainy_Words_2000.xcdatamodeld in Sources */,
 				3CDF5C971FEE03EB00D8FAA3 /* SWXMLHash+TypeConversion.swift in Sources */,
+				3CC2963A1FEE58CE009D52DA /* InteriorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

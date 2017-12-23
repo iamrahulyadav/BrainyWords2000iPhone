@@ -112,8 +112,18 @@ class MainStreetViewController: UIViewController, UIScrollViewDelegate {
                                 button.setTitle(buttonDictKey, for: .normal)
                                 button.layer.backgroundColor = UIColor.blue.withAlphaComponent(0.5).cgColor
                                 button.frame = CGRect(x: containerOffset + xOffset, y: yOffset, width: buttonWidth, height: buttonHeight)
-                                button.accessibilityLabel = currentButtonXML.attribute(by: "android:tag")?.text
-                                button.addTarget(self, action: #selector(buttonTappedToPlayWordSound(sender:)), for: .touchUpInside)
+                                
+                                if let onTapAction = currentButtonXML.attribute(by: "android:onClick")?.text {
+                                    if onTapAction == "playSound" {
+                                        button.accessibilityLabel = currentButtonXML.attribute(by: "android:tag")?.text
+                                        button.addTarget(self, action: #selector(buttonTappedToPlayWordSound(sender:)), for: .touchUpInside)
+                                    } else if onTapAction == "openStore" {
+                                        button.addTarget(self, action: #selector(buttonTappedToOpenStore(sender:)), for: .touchUpInside)
+                                    } else if onTapAction == "openInterior" {
+                                        button.addTarget(self, action: #selector(buttonTappedToOpenInterior(sender:)), for: .touchUpInside)
+                                    }
+                                }
+                                
                                 buttonDict[buttonDictKey] = button
                                 
                                 // imageContainerView.addSubview(button)
@@ -135,6 +145,12 @@ class MainStreetViewController: UIViewController, UIScrollViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+    }
+    
+    @objc func buttonTappedToOpenStore(sender: UIButton) {
+    }
+    
+    @objc func buttonTappedToOpenInterior(sender: UIButton) {
     }
     
     @objc func buttonTappedToPlayWordSound(sender: UIButton) {
@@ -172,6 +188,10 @@ class MainStreetViewController: UIViewController, UIScrollViewDelegate {
         } catch let error {
             print("Failed to play audio. \(error)")
         }
+    }
+    
+    func playCategorySound(cat: String) {
+        
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
