@@ -114,13 +114,15 @@ class MainStreetViewController: UIViewController, UIScrollViewDelegate {
                                 button.frame = CGRect(x: containerOffset + xOffset, y: yOffset, width: buttonWidth, height: buttonHeight)
                                 
                                 if let onTapAction = currentButtonXML.attribute(by: "android:onClick")?.text {
+                                    button.accessibilityLabel = currentButtonXML.attribute(by: "android:tag")?.text
                                     if onTapAction == "playSound" {
-                                        button.accessibilityLabel = currentButtonXML.attribute(by: "android:tag")?.text
                                         button.addTarget(self, action: #selector(buttonTappedToPlayWordSound(sender:)), for: .touchUpInside)
                                     } else if onTapAction == "openStore" {
                                         button.addTarget(self, action: #selector(buttonTappedToOpenStore(sender:)), for: .touchUpInside)
                                     } else if onTapAction == "openInterior" {
                                         button.addTarget(self, action: #selector(buttonTappedToOpenInterior(sender:)), for: .touchUpInside)
+                                    } else {
+                                        print("Based on limited XML information, button action unknown.")
                                     }
                                 }
                                 
@@ -148,9 +150,15 @@ class MainStreetViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @objc func buttonTappedToOpenStore(sender: UIButton) {
+        if let storePath = sender.accessibilityLabel {
+            print("Tapped button corresponds to store: \(storePath)")
+        }
     }
     
     @objc func buttonTappedToOpenInterior(sender: UIButton) {
+        if let interiorPath = sender.accessibilityLabel {
+            print("Tapped button corresponds to interior: \(interiorPath)")
+        }
     }
     
     @objc func buttonTappedToPlayWordSound(sender: UIButton) {
