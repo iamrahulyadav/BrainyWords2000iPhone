@@ -9,6 +9,7 @@
 import UIKit
 
 class MainStreetViewController: UIViewController {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,14 @@ class MainStreetViewController: UIViewController {
     }
     
     func setupImagesAndButtons() {
+        let scrollView: UIScrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: 500, height: 300))
+        scrollView.contentSize = CGSize(width: 2000, height: 300)
+        let containerView: UIView = UIView()
+        scrollView.addSubview(containerView)
+        self.view.addSubview(scrollView)
+        var containerOffset: CGFloat = 0
+//        scrollView.addSubview(<#T##view: UIView##UIView#>)
+        
         guard let path = Bundle.main.path(forResource: "layout/activity_main", ofType: "xml") else {
             return
         }
@@ -39,18 +48,29 @@ class MainStreetViewController: UIViewController {
                     normalizedImageName = "\(normalizedImageName ?? "assets/drawable/back").png"
                     
                     let image = UIImage(named: normalizedImageName!)
+                    let calculatedWidth = ((image?.size.height)! / 300) * (image?.size.width)!
                     let imageView = UIImageView(image: image)
-                    imageView.frame = CGRect(x: 0, y: 0, width: 500, height: 500)
-                    self.view.addSubview(imageView)
-                    break
+                    imageView.frame = CGRect(x: containerOffset, y: 0, width: calculatedWidth, height: 300)
+                    containerView.addSubview(imageView)
 
-                    for currentButton in currentPictureXML.children {
-
-//                        print("currentPictureXML is \(currentPictureXML), currentButton is \(currentButton)")
-                    }
+                    containerOffset += calculatedWidth
+//                    for currentButton in currentPictureXML.children {
+//                        if let currentButtonXML = currentButton as? XMLElement {
+//                            let buttonWidth = currentButtonXML.attribute(by: "android:layout_width")?.text
+//                            let buttonHeight = currentButtonXML.attribute(by: "android:layout_height")?.text
+//
+//                            let button = UIButton(type: .roundedRect)
+//                            button.setTitle("Demo Btn", for: .normal)
+//                            button.layer.backgroundColor = UIColor.blue.withAlphaComponent(0.5).cgColor
+//                            button.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+//                            self.view.addSubview(button)
+//                        }
+//                    }
+//                    break
                 }
             }
-
+            
+            
         } catch let error {
             print("Failed to parse XML. \(error)")
         }
@@ -64,3 +84,6 @@ class MainStreetViewController: UIViewController {
     }
 
 }
+
+//class
+
