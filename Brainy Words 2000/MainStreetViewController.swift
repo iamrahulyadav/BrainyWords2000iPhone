@@ -148,9 +148,12 @@ class MainStreetViewController: UIViewController, UIScrollViewDelegate {
     
     func playSound(soundName: String) {
         let path = "assets/\(soundName)"
-        let startSound = NSURL(fileURLWithPath: Bundle.main.path(forResource: path, ofType: "mp3")!)
+        guard let mp3Path = Bundle.main.path(forResource: path, ofType: "mp3") else {
+            return
+        }
+        let mp3FileURL = NSURL(fileURLWithPath: mp3Path)
         do {
-            audioPlayer = try AVAudioPlayer(contentsOf: startSound as URL)
+            audioPlayer = try AVAudioPlayer(contentsOf: mp3FileURL as URL)
 //            audioPlayer?.delegate = self
             audioPlayer?.prepareToPlay()
             audioPlayer?.play()
