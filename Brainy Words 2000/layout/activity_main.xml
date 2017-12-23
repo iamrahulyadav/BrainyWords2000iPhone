@@ -33,7 +33,7 @@
 
                     <Button
                         android:onClick="openStore"
-                        android:tag="@string/dogs"
+                        android:tag="xtra/HEADINGS/00dogs"
                         android:id="@+id/dogstore"
                         android:layout_width="75dp"
                         android:layout_height="100dp"
@@ -57,7 +57,7 @@
                         android:layout_toRightOf="@+id/dogstore"
                         android:background="@null"
                         android:onClick="openInterior"
-                        android:tag="toys" />
+                        android:tag="xtra/HEADINGS/00toys" />
 
                     <Button
                         android:id="@+id/bakerystore"
@@ -70,7 +70,7 @@
                         android:layout_toRightOf="@+id/toystore"
                         android:background="@null"
                         android:onClick="openInterior"
-                        android:tag="bakery" />
+                        android:tag="xtra/HEADINGS/00bakery" />
 
                     <Button
                         android:id="@+id/cockerspaniela"
@@ -1422,7 +1422,7 @@
                         android:layout_marginTop="13dp"
                         android:background="@null"
                         android:onClick="openStore"
-                        android:tag="@string/pets" />
+                        android:tag="xtra/HEADINGS/00pets" />
 
                     <Button
                         android:id="@+id/ladystroller"
@@ -2442,7 +2442,7 @@
 
                     <Button
                         android:onClick="openStore"
-                        android:tag="@string/restaurant"
+                        android:tag="xtra/HEADINGS/00estaurant"
                         android:background="@null"
                         android:layout_height="100dp"
                         android:id="@+id/restaurant"
