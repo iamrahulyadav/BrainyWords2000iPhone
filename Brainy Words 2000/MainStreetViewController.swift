@@ -176,11 +176,11 @@ class MainStreetViewController: UIViewController, UIScrollViewDelegate {
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        var threshold = self.view.frame.size.width
+        let threshold = self.view.frame.size.width
         
         if (scrollView.contentOffset.x < CGFloat(0)) {
             scrollView.contentOffset.x = containerOffset - threshold
-        } else if (scrollView.contentOffset.x > CGFloat(threshold - threshold)) {
+        } else if (scrollView.contentOffset.x > CGFloat(containerOffset - threshold)) {
             scrollView.contentOffset.x = 0
         }
     }
