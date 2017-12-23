@@ -147,7 +147,11 @@ class MainStreetViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func playSound(soundName: String) {
-        let path = "assets/\(soundName)".replacingOccurrences(of: ".mp3", with: "") // some files inside the manifist already have the mp3 extension
+        var path = "assets/\(soundName)".replacingOccurrences(of: ".mp3", with: "") // some files inside the manifist already have the mp3 extension
+        if !soundName.contains("/") {
+            path = "assets/xtra/HEADINGS/00\(soundName)"
+        }
+
         guard let mp3Path = Bundle.main.path(forResource: path, ofType: "mp3") else {
             return
         }
