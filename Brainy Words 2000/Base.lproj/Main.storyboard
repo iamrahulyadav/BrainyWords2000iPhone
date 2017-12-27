@@ -39,6 +39,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-624" y="-678"/>
+        </scene>
+        <!--Interior View Controller-->
+        <scene sceneID="tH9-sZ-cWR">
+            <objects>
+                <viewController storyboardIdentifier="InteriorViewController" id="M17-k5-aez" customClass="InteriorViewController" customModule="Brainy_Words_2000" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GNP-ur-nHj">
+                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="APf-n1-RzK"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cSL-jm-Xh0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-624" y="31"/>
         </scene>
         <!--Main Street View Controller-->
         <scene sceneID="OKM-8y-7Cg">
@@ -74,6 +90,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="87a-Z9-T9k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="53.956834532374103" y="-678.41726618705036"/>
+        </scene>
+        <!--Quiz View Controller-->
+        <scene sceneID="8as-fs-D8V">
+            <objects>
+                <viewController storyboardIdentifier="QuizViewController" id="msj-ba-9mV" customClass="QuizViewController" customModule="Brainy_Words_2000" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aoO-ag-W6v">
+                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="1wp-8c-z4K"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MUe-y0-W6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="54" y="31"/>
         </scene>
     </scenes>
     <resources>

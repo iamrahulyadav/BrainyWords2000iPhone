@@ -90,20 +90,36 @@ class MainStreetViewController: UIViewController, UIScrollViewDelegate {
                                 let marginRight = currentButtonXML.attribute(by: "android:layout_marginRight")?.text
                                 let marginDown = currentButtonXML.attribute(by: "android:layout_marginDown")?.text
                                 
+                                let toRightOf = currentButtonXML.attribute(by: "android:layout_toRightOf")?.text
+                                let toLeftOf = currentButtonXML.attribute(by: "android:layout_toLeftOf")?.text
+
                                 var xOffset: CGFloat = 0
                                 var yOffset: CGFloat = 0
                                 
-                                if let leftM = marginLeft {
-                                    xOffset = leftM.dpToCGFloat()
+                                if let rightM = toRightOf as? String, let referenceButton = buttonDict[rightM] {
+                                    print("referencing other (to the right) button \(referenceButton)")
+                                    xOffset = referenceButton.frame.origin.x - containerOffset + referenceButton.frame.size.width
                                 }
-                                if let topM = marginTop {
-                                    yOffset = topM.dpToCGFloat()
+                                
+                                if let leftM = toLeftOf as? String, let referenceButton = buttonDict[leftM] {
+                                    print("referencing other (to the left) button \(referenceButton)")
+                                    // this is unlikely to be correct
+                                    xOffset = referenceButton.frame.origin.x - containerOffset
+                                }
+
+                                
+                                if let leftM = marginLeft {
+                                    xOffset += leftM.dpToCGFloat()
                                 }
                                 if let rightM = marginRight {
-                                    xOffset = calculatedWidth - rightM.dpToCGFloat()
+                                    xOffset += calculatedWidth - rightM.dpToCGFloat()
+                                }
+                                
+                                if let topM = marginTop {
+                                    yOffset += topM.dpToCGFloat()
                                 }
                                 if let bottomM = marginDown {
-                                    yOffset = 300 - bottomM.dpToCGFloat()
+                                    yOffset += 300 - bottomM.dpToCGFloat()
                                 }
 
                                 let buttonDictKey = currentButtonXML.attribute(by: "android:id")?.text ?? "Unknown"
